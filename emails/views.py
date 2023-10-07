@@ -2,12 +2,13 @@ from django.shortcuts import render
 import json
 from django.http import JsonResponse
 from .tasks import sendEmail
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index(request):
     return render(request, "emails/index.html")
 
-
+@csrf_exempt
 def wsSendEmail(request):
     try:
         data = request.body
