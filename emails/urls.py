@@ -7,7 +7,8 @@ app_name = 'emails'
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('wsSendEmail', views.wsSendEmail, name="wsSendEmail")
+    path('wsSendEmail', views.wsSendEmail, name="wsSendEmail"),
+    path('vista', views.msj, name="vista")
 ]
 
 if settings.DEBUG:
