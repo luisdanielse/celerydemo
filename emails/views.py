@@ -24,3 +24,7 @@ def wsSendEmail(request):
         json_response = {'success': 'fail'}
     response = JsonResponse(json_response)
     return response
+
+
+def msj(request):
+    return render(request, "vista/index.html")
