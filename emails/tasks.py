@@ -1,6 +1,7 @@
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from celery import shared_task
+from .models import periodicMessage
 
 fromEmail = "contacto@danielsotodev.com"
 
@@ -19,3 +20,13 @@ def sendEmail(to, mensaje):
         print(f"Se produjo una excepción: {str(e)}")
         mail_sent = 0
     return mail_sent
+
+
+
+@shared_task
+def my_scheduled_task():
+    # Tu lógica aquí
+    nuevoMensaje = periodicMessage(
+        message = "Este mensaje es periodico"
+    )
+    nuevoMensaje.save()
